@@ -1,2 +1,2 @@
 web: npm run dev
-"heroku-postbuild": "rollup -c"
+"heroku-postbuild": "rollup -c -w"
