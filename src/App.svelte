@@ -64,8 +64,10 @@
   function check(ind, rightInd) {
     if (ind === rightInd) {
       message = '';
+      document.getElementById(ind.toString()).style.backgroundColor = 'green'
       promise = newGame();
     } else {
+      document.getElementById(ind.toString()).style.backgroundColor = 'red'
       message = 'Неверно, подумай еще раз.'
     }
   }
@@ -83,6 +85,7 @@
   }
 
   let promise = newGame();
+
 </script>
 
 <main>
@@ -91,7 +94,7 @@
       <h1>{game.trueWord}</h1>
       <div id="words-block">
         {#each game.words as word, i}
-          <button on:click={() => check(i, game.trueIndex)}>{word}</button>
+            <button id={i.toString()} on:click={() => check(i, game.trueIndex) }>{word}</button>
         {/each}
       </div>
       <div id="message">
@@ -129,13 +132,18 @@
     flex-wrap: wrap;
   }
 
-  #words-block button {
+  button {
     width: 250px;
     min-width: 100px;
     cursor: pointer;
     margin: 10px 20px;
     padding: 20px;
     border-radius: 20px;
+    transition: background 0.5s linear 0.1s , color 0.5s linear 0s;
+  }
+
+  button:hover {
+    background-color: yellowgreen;
   }
 
   #message {
