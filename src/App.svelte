@@ -54,7 +54,7 @@
             message = '';
             promise = newGame();
           } else {
-            message = 'Неверно, подумай еще раз.'
+            message = 'Неверно'
           }
         break
       }
@@ -68,7 +68,7 @@
       promise = newGame();
     } else {
       document.getElementById(ind.toString()).style.backgroundColor = 'red'
-      message = 'Неверно, подумай еще раз.'
+      message = 'Неверно'
     }
   }
 
