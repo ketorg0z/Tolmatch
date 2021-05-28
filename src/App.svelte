@@ -139,11 +139,12 @@
     margin: 10px 20px;
     padding: 20px;
     border-radius: 20px;
-    transition: background 0.5s linear 0.1s , color 0.5s linear 0s;
+    transition: background 0.3s linear 0.1s , color 0.3s linear 0s, border 0.3s linear 0.1s;
   }
 
   button:hover {
     background-color: yellowgreen;
+    border-color: yellowgreen;
   }
 
   #message {
