@@ -14,7 +14,7 @@
   let initPhrase = 'Включи квиз-переводчик'; 
 
   function getState() {
-    console.log("State was get");
+    //console.log("State was get");
     const state = {
       item_selector: {
         items: [
@@ -25,13 +25,13 @@
         ],
       }
     }
-    console.log(state)
+    //console.log(state)
     return state;
   }
 
   let assistant;
   onMount(() => {
-    //const init = () => {
+    // const init = () => {
     //   return createSmartappDebugger({
     //     token,
     //     initPhrase,
@@ -39,21 +39,30 @@
     //     settings: {debugging: false}
     //   })
     //  return createAssistant({getState});
-    //}
+    // }
     assistant = init();
 
     assistant.on("start", (event) => {
-      console.log(`assistant.on(start)`, event);
+      //console.log(`assistant.on(start)`, event);
     });
 
     assistant.on("data", (event) => {
-      console.log('EVENT!!!', event);
+      //console.log('EVENT!!!', event);
       switch (event.action.type) {
         case 'answer':
           if (wordsState[idState] === event.action.word) {
             message = '';
             promise = newGame();
           } else {
+            let k = 0
+            //console.log(wordsState)
+            var step;
+            for (step = 0; step < 3; step++) {
+              if (wordsState[step] == event.action.word){
+                document.getElementById(step.toString()).style.backgroundColor = 'red'
+                break
+              }
+            }
             message = 'Неверно'
           }
         break
