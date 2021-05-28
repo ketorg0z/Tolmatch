@@ -14,17 +14,17 @@
   let initPhrase = 'Включи квиз-переводчик'; 
 
   function getState() {
-    console.log("State was get");
-    const state = {
-      item_selector: {
-        items: [
-          {rightId: idState},
-          {
-            words: wordsState
-          }
-        ],
-      }
-    }
+   // console.log("State was get");
+   // const state = {
+   //   item_selector: {
+   //     items: [
+   //       {rightId: idState},
+   //       {
+   //         words: wordsState
+   //       }
+   //     ],
+   //   }
+   // }
     console.log(state)
     return state;
   }
