@@ -14,32 +14,32 @@
   let initPhrase = 'Включи квиз-переводчик'; 
 
   function getState() {
-   // console.log("State was get");
-   // const state = {
-   //   item_selector: {
-   //     items: [
-   //       {rightId: idState},
-   //       {
-   //         words: wordsState
-   //       }
-   //     ],
-   //   }
-   // }
+    console.log("State was get");
+    const state = {
+      item_selector: {
+        items: [
+          {rightId: idState},
+          {
+            words: wordsState
+          }
+        ],
+      }
+    }
     console.log(state)
     return state;
   }
 
   let assistant;
   onMount(() => {
-    const init = () => {
-       return createSmartappDebugger({
-         token,
-         initPhrase,
-         getState,
-         settings: {debugging: false}
-       })
-      return createAssistant({getState});
-    }
+    //const init = () => {
+    //   return createSmartappDebugger({
+    //     token,
+    //     initPhrase,
+    //     getState,
+    //     settings: {debugging: false}
+    //   })
+    //  return createAssistant({getState});
+    //}
     assistant = init();
 
     assistant.on("start", (event) => {
