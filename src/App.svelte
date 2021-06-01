@@ -155,6 +155,10 @@
     background-color: yellowgreen;
     border-color: yellowgreen;
   }
+  button:focus {
+    background-color: yellowgreen;
+    border-color: yellowgreen;
+  }
 
   #message {
     width: 100%;
