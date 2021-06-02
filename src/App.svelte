@@ -47,7 +47,6 @@
     });
 
     assistant.on("data", (event) => {
-      //console.log('EVENT!!!', event);
       switch (event.action.type) {
         case 'answer':
           if (wordsState[idState] === event.action.word) {
@@ -60,9 +59,7 @@
                 break
               }
             }
-
             var delayInMilliseconds = 700;
-
             setTimeout(function() {
               promise = newGame();
               message = ''
@@ -97,19 +94,21 @@
         message = ''
       }, delayInMilliseconds);
 
-    assistant.sendData({
-      action: {
-        action_id: 'yes'
-      }
-    })
+    // assistant.sendData({
+    //   action: {
+    //     type: 'yes',
+    //     payload: {}
+    //   }}
+    //   )
     } else {
       document.getElementById(ind.toString()).style.backgroundColor = 'red'
       message = 'Неверно'
-      assistant.sendData({
-        action: {
-          action_id: 'no'
-        }
-      })
+      // assistant.sendData({
+      //   action: {
+      //     type: 'no',
+      //     payload: {}
+      //   }}
+      // )
     }
   }
 
