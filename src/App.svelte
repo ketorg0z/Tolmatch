@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
 
 <script>
-  import {createSmartappDebugger, createAssistant} from '@sberdevices/assistant-client'
+  import {createSmartappDebugger, createAssistant, initializeAssistantSDK} from '@sberdevices/assistant-client'
   import { onMount } from 'svelte'
 
   let message = '';
@@ -32,12 +32,12 @@
   let assistant;
   onMount(() => {
      const init = () => {
-      //  return createSmartappDebugger({
-      //   token,
-      //   initPhrase,
-      //   getState,
-      //   settings: {debugging: false}
-      //  })
+       return createSmartappDebugger({
+        token,
+        initPhrase,
+        getState,
+        settings: {debugging: false}
+       })
       return createAssistant({getState});
      }
     assistant = init();
@@ -51,8 +51,22 @@
       switch (event.action.type) {
         case 'answer':
           if (wordsState[idState] === event.action.word) {
-            message = '';
-            promise = newGame();
+            message = 'Верно';
+            document.getElementById('message').style.color = 'green'
+            var step;
+            for (step = 0; step < 3; step++) {
+              if (wordsState[step] == event.action.word){
+                document.getElementById(step.toString()).style.backgroundColor = 'green'
+                break
+              }
+            }
+
+            var delayInMilliseconds = 700;
+
+            setTimeout(function() {
+              promise = newGame();
+              message = ''
+            }, delayInMilliseconds);
           } else {
             let k = 0
             //console.log(wordsState)
@@ -66,19 +80,36 @@
             message = 'Неверно'
           }
         break
-      }
+      } 
     });
   })
 
   function check(ind, rightInd) {
     if (ind === rightInd) {
-      message = '';
+      message = 'Верно';
+      document.getElementById('message').style.color = 'green'
       document.getElementById(ind.toString()).style.backgroundColor = 'green'
-      
-      promise = newGame();
+
+      var delayInMilliseconds = 700;
+
+      setTimeout(function() {
+        promise = newGame();
+        message = ''
+      }, delayInMilliseconds);
+
+    assistant.sendData({
+      action: {
+        action_id: 'yes'
+      }
+    })
     } else {
       document.getElementById(ind.toString()).style.backgroundColor = 'red'
       message = 'Неверно'
+      assistant.sendData({
+        action: {
+          action_id: 'no'
+        }
+      })
     }
   }
 
