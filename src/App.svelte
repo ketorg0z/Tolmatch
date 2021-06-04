@@ -30,15 +30,15 @@
 
   let assistant;
   onMount(() => {
-    //  const init = () => {
+      const init = () => {
     //    return createSmartappDebugger({
     //     token,
     //     initPhrase,
     //     getState,
     //     settings: {debugging: false}
     //    })
-    //   return createAssistant({getState});
-    //  }
+       return createAssistant({getState});
+      }
     assistant = init();
 
     assistant.on("start", (event) => {
