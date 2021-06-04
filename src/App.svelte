@@ -9,8 +9,7 @@
   const backendUrl = 'https://tolmatch-backend.herokuapp.com/'
   let wordsState = []
   let idState
-  let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NmI4MjA4OWJiNzJkMTA3NGMzMWIwNmQ1YWVmMjE0NDg4NjhjYjZkZTUxZDM4NTE0ZDY1ZjZlYTJmOTgxOTlhNTM5YmU5MjcwMDQyNjI5OCIsImF1ZCI6IlZQUyIsImV4cCI6MTYyMjY1MzAwMCwiaWF0IjoxNjIyNTY2NTkwLCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiZDRmMWU5ZjctMjY5Mi00ZjhiLWI2ZTQtZTAwOGQ3ZTQ1ZDViIiwic2lkIjoiYzhiZWYzZTUtNWI0NS00OTE5LWJkNmUtZTU1ODIwOGM4NjVlIn0.APCa4-ViqJGnTFJFRQBwAREb6T5Im2nHqkP1-Lu4DywT2QqdwLtxKU4ZadolijxMpiZMzP6_-W94jVoL0U2HN3uT1iH3cX9grBIE9Iir_s0UM3tIOh7_0uIju6WxaqtysDXOdVyhuEyRRnx1IuxQISE6s6FpohJ0d12lQ8F29hx6eaGwsLn1X9MQiYDViy1ES6TTYW2wc3P28TUxCTSKoz8YbWRMjUf5RYHNDuZWV_rojW0ld5FY94qK82-KS38iWqsGsR-ook4AV2P99upQ5KdsZtSpr7TVvo6qEe2KnKI76agAFqT4Fi8EEHS-YyeVDQUL6JMSRjnz2OiXSblA2A0wNhkPg8caCc-Rta8D1K3j-hvgohJR3H18qJCZksx06OzaMGEXOPCUYgwGM5NUNKLrAZr3cF8rgdgjxYu7RTZe4mhxWgX2M3RBCk4WfQfujw26bNB6jEjhJZABO-8pLuiZW4xgF3U9mG5OBnaxZhJEus3K6gMYoN_MJBqIrY7tUeCTNzPeCcZMUWUTnQ_60SJUSYTpeViFubO79b9v2yOC3o6z7OTadRnmVYN9ESk92vX9iUS8hzwHG1JnwHfollQI6BCl_jEDKvau1embqLvdhdwzIVYjCLJtlKVWlNVC6FJ2VY9YcD76Y3N5sjT4GEHWqFvaigfuOkOYoFkyEJk';
-  //let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMzM2YmEwMjU3MzEyN2RkMDY1MmYxNDRmZDI5NmQwNWViNmIyZTk5MTJhMmVlMDQ5NzAyMWE4ZGE0NDVjM2E5NTM5YmU5MjcwMDQyNjI5OCIsImF1ZCI6IlZQUyIsImV4cCI6MTYyMjAzNDIzNCwiaWF0IjoxNjIxOTQ3ODI0LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiNDkxZTRjMjUtOGE0Ni00MTIxLTllMDktOGNkYWVmYjg0NTU0Iiwic2lkIjoiYjI1MmRmMzktY2JkNy00NmY5LThhZWEtYjAyNTNjMzA4MTI2In0.UJ-GIOJ0JqNw1kBDe_9T42YXBZL6LrmQ9dWMOKiRG6qWBxSPrwYZD1LS32KENvLv7NvCURs_nTM6J622vooQ-EM366yj1UiQQ_sMmw8XPKlq1q46GIfM9nF0ngu_Lzny4GDfxytsA_T-DdQby9g1HdqH1TWnbOhUA3gz7S2wL-esWF2IENDJI01Yx_VR141fi9fc8eM0PM_gHWJOsL7v8ZHFMBcDhT4zRsHPhgXxKJCApL98xzu9akpXjrrJ_5F8gvaZ-mKSVTsd3aAZyzR4Eh9JuVmhyCekD3BohwF61Tn6wse7FjTYkM5yzqM8BY8CyIchAQUPg3yBS3z9E1K5jn4WiDBFpUVI7vrkZOCZspa7l64jagUyCASoVHLni-PArZBFsn9ztPKA0rh4znTh5Hz8JMDktzT6bG7QYe911DrWtTL0dQkmz73KHEzaH1_TWt2C3Qbaht_i78qGK7Oo5oG4WPWI_wv9Keyg8_SCsk6I9oMSRVd-5onWO1cqfR8QUo4wuSJmUd84lhdfw_OEyWb8wFDmuGJemj_0zYRBnXdG_XV8AR1OLe1GZ9Ulv4sV3Ib0KSxMGYrGecj3Dy2BdQubUmOl7Zo6GY9X7_xgDSHqEw4h41lqtRRQQxew9q_aRACbdWJfrAPjxGOPf-PDmcis8PYsH9URfbGyJNbXYu8';
+  let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NmI4MjA4OWJiNzJkMTA3NGMzMWIwNmQ1YWVmMjE0NDg4NjhjYjZkZTUxZDM4NTE0ZDY1ZjZlYTJmOTgxOTlhNTM5YmU5MjcwMDQyNjI5OCIsImF1ZCI6IlZQUyIsImV4cCI6MTYyMjkxNjI2NiwiaWF0IjoxNjIyODI5ODU2LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiMTQ5NmQ0NWMtYzg5MC00NDk5LWExNjctZWM5OGU5ODYwYTBkIiwic2lkIjoiMjQzYzJkMTktNTI5Ni00MGJjLTg4M2ItNWFjMWFjMmYzMzk3In0.jH8noU3F1U-O3HRXRmX8pEzlLEitbAY1wsGueGIyA3KPc95vi554tjpmsDVIQ0coZRDja85gk7DJvg8V3IhVwb7KEe-NyhvUDGZdhwg1y214BAjLWpY58zxVqol2mwKTrHXWmg07SpLdHC4TsgpkXwxOK4tnd34OGf3aDyXgJq-aasOl7gusRcVSSj9oL0C7NJ_Q5N28C4yUaSFh_FN56LPdnUIy5__rdVYE-w-Ld8Zi-2slyArxwOrJFQ0EEayAqMR4v_zG9BhpCSMPZGc65MKeGiX0_f9eleSvA22ua-bBE-f2UURYUw_HsF2xySGacaJdgn-dr1mp4wS0iBS_adQ7RueLaFgoBTn53zzfNMaDP5FX-hoFknrs3Sh_57dfcBz37cw_nNLAxzP0sytYhGHpb276YDaZAZ3y2srhB7N5d3D-8QWduLq7l5CrHmXmejeP-230otLPZr5zkZt9iX9Aapy2vbOZ26xqV7S6UIkpCl-c2cBrJVMFuXh4xWeEdPuhV1O4nixmp6p3UZqK6B6QWkVaaJ6qh6rmnNx-_2IdEgdy63OYVKcY1xyENrOBWUckhwWBqYsWQhdEx07jrKQTOycyeQz7Ck-6JIYHiV9yP0xuNgi9hV66qLBvv7WGJyZJlYdcquIc7mH1uHcyZQwrahR-twiLtZP1cN0UZgw';
   let initPhrase = 'Включи квиз-переводчик'; 
 
   function getState() {
@@ -32,12 +31,12 @@
   let assistant;
   onMount(() => {
      const init = () => {
-      //  return createSmartappDebugger({
-      //   token,
-      //   initPhrase,
-      //   getState,
-      //   settings: {debugging: false}
-      //  })
+       return createSmartappDebugger({
+        token,
+        initPhrase,
+        getState,
+        settings: {debugging: false}
+       })
       return createAssistant({getState});
      }
     assistant = init();
@@ -47,7 +46,8 @@
     });
 
     assistant.on("data", (event) => {
-      switch (event.action.type) {
+      console.log("event", event)
+      switch (event?.action.type) {
         case 'answer':
           if (wordsState[idState] === event.action.word) {
             message = 'Верно';
@@ -94,21 +94,21 @@
         message = ''
       }, delayInMilliseconds);
 
-    // assistant.sendData({
-    //   action: {
-    //     type: 'yes',
-    //     payload: {}
-    //   }}
-    //   )
+    assistant.sendData({
+      action: {
+        action_id: 'yes',
+        parameter: {}
+      }}
+      )
     } else {
       document.getElementById(ind.toString()).style.backgroundColor = 'red'
       message = 'Неверно'
-      // assistant.sendData({
-      //   action: {
-      //     type: 'no',
-      //     payload: {}
-      //   }}
-      // )
+      assistant.sendData({
+        action: {
+          action_id: 'no',
+          parameter:  {}
+        }}
+      )
     }
   }
 
