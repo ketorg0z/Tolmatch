@@ -10,7 +10,7 @@
   let wordsState = []
   let idState
   let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI3NmI4MjA4OWJiNzJkMTA3NGMzMWIwNmQ1YWVmMjE0NDg4NjhjYjZkZTUxZDM4NTE0ZDY1ZjZlYTJmOTgxOTlhNTM5YmU5MjcwMDQyNjI5OCIsImF1ZCI6IlZQUyIsImV4cCI6MTYyMjkxNjI2NiwiaWF0IjoxNjIyODI5ODU2LCJpc3MiOiJLRVlNQVNURVIiLCJ0eXBlIjoiQmVhcmVyIiwianRpIjoiMTQ5NmQ0NWMtYzg5MC00NDk5LWExNjctZWM5OGU5ODYwYTBkIiwic2lkIjoiMjQzYzJkMTktNTI5Ni00MGJjLTg4M2ItNWFjMWFjMmYzMzk3In0.jH8noU3F1U-O3HRXRmX8pEzlLEitbAY1wsGueGIyA3KPc95vi554tjpmsDVIQ0coZRDja85gk7DJvg8V3IhVwb7KEe-NyhvUDGZdhwg1y214BAjLWpY58zxVqol2mwKTrHXWmg07SpLdHC4TsgpkXwxOK4tnd34OGf3aDyXgJq-aasOl7gusRcVSSj9oL0C7NJ_Q5N28C4yUaSFh_FN56LPdnUIy5__rdVYE-w-Ld8Zi-2slyArxwOrJFQ0EEayAqMR4v_zG9BhpCSMPZGc65MKeGiX0_f9eleSvA22ua-bBE-f2UURYUw_HsF2xySGacaJdgn-dr1mp4wS0iBS_adQ7RueLaFgoBTn53zzfNMaDP5FX-hoFknrs3Sh_57dfcBz37cw_nNLAxzP0sytYhGHpb276YDaZAZ3y2srhB7N5d3D-8QWduLq7l5CrHmXmejeP-230otLPZr5zkZt9iX9Aapy2vbOZ26xqV7S6UIkpCl-c2cBrJVMFuXh4xWeEdPuhV1O4nixmp6p3UZqK6B6QWkVaaJ6qh6rmnNx-_2IdEgdy63OYVKcY1xyENrOBWUckhwWBqYsWQhdEx07jrKQTOycyeQz7Ck-6JIYHiV9yP0xuNgi9hV66qLBvv7WGJyZJlYdcquIc7mH1uHcyZQwrahR-twiLtZP1cN0UZgw';
-  let initPhrase = 'Включи квиз-переводчик'; 
+  let initPhrase = 'Включи толмач'; 
 
   function getState() {
     //console.log("State was get");
@@ -30,15 +30,15 @@
 
   let assistant;
   onMount(() => {
-     const init = () => {
-       return createSmartappDebugger({
-        token,
-        initPhrase,
-        getState,
-        settings: {debugging: false}
-       })
-      return createAssistant({getState});
-     }
+    //  const init = () => {
+    //    return createSmartappDebugger({
+    //     token,
+    //     initPhrase,
+    //     getState,
+    //     settings: {debugging: false}
+    //    })
+    //   return createAssistant({getState});
+    //  }
     assistant = init();
 
     assistant.on("start", (event) => {
