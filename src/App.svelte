@@ -47,7 +47,7 @@
 
     assistant.on("data", (event) => {
       console.log("event", event)
-      switch (event?.action.type) {
+      switch (event?.action?.type) {
         case 'answer':
           if (wordsState[idState] === event.action.word) {
             message = 'Верно';
