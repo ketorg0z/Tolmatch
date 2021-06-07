@@ -47,36 +47,43 @@
 
     assistant.on("data", (event) => {
       console.log("event", event)
-      switch (event?.action?.type) {
-        case 'answer':
-          if (wordsState[idState] === event.action.word) {
-            message = 'Верно';
-            document.getElementById('message').style.color = 'green'
-            var step;
-            for (step = 0; step < 3; step++) {
-              if (wordsState[step] == event.action.word){
-                document.getElementById(step.toString()).style.backgroundColor = 'green'
-                break
-              }
+      if (event != undefined){
+        if (event.action != undefined){
+          if (event.action.type != undefined){
+            //switch (event?.action?.type)
+            switch (event.action.type) {
+              case 'answer':
+                if (wordsState[idState] === event.action.word) {
+                  message = 'Верно';
+                  document.getElementById('message').style.color = 'green'
+                  var step;
+                  for (step = 0; step < 3; step++) {
+                    if (wordsState[step] == event.action.word){
+                      document.getElementById(step.toString()).style.backgroundColor = 'green'
+                      break
+                    }
+                  }
+                  var delayInMilliseconds = 700;
+                  setTimeout(function() {
+                    promise = newGame();
+                    message = ''
+                  }, delayInMilliseconds);
+                } else {
+                  let k = 0
+                  //console.log(wordsState)
+                  var step;
+                  for (step = 0; step < 3; step++) {
+                    if (wordsState[step] == event.action.word){
+                      document.getElementById(step.toString()).style.backgroundColor = 'red'
+                      break
+                    }
+                  }
+                  message = 'Неверно'
+                }
+              break
             }
-            var delayInMilliseconds = 700;
-            setTimeout(function() {
-              promise = newGame();
-              message = ''
-            }, delayInMilliseconds);
-          } else {
-            let k = 0
-            //console.log(wordsState)
-            var step;
-            for (step = 0; step < 3; step++) {
-              if (wordsState[step] == event.action.word){
-                document.getElementById(step.toString()).style.backgroundColor = 'red'
-                break
-              }
-            }
-            message = 'Неверно'
           }
-        break
+        }
       } 
     });
   })
